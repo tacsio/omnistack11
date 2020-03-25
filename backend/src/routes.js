@@ -1,26 +1,20 @@
 const express = require('express');
-const crypto = require('crypto');
-const connection = require('../database/connection');
+const OngController = require('./controllers/OngController');
+const IncidentsController = require('./controllers/IncidentController');
+const ProfileController = require('./controllers/ProfileController');
+const SessionController = require('./controllers/SessionController');
 
 const routes = express.Router();
 
+routes.get('/ongs', OngController.index);
+routes.post('/ongs', OngController.create);
 
-routes.post('/ongs', async (request, response) => {
-	const { name, email, whatsapp, city, uf } = request.body
-	const id = crypto.randomBytes(4).toString('HEX');
+routes.get('/incidents', IncidentsController.index);
+routes.post('/incidents', IncidentsController.create);
+routes.delete('/incidents/:id', IncidentsController.delete);
 
-	await connection('ongs').insert({
-		id, name, email, whatsapp, city, uf
-	})
+routes.get('/profile', ProfileController.index);
 
-	return response.json({ id });
-});
-
-routes.get('/', (request, response) => {
-	return response.json({
-		evento: "Semana Omnistack 11",
-		aluno: "Tarcisio Coutinho"
-	});
-});
+routes.post('/sessions', SessionController.create);
 
 module.exports = routes;
