@@ -3,6 +3,9 @@
 > Backend
 
 ```
+$1 npx knex migrate:latest
+
+
 $1 docker run -p 27017:27017 -it mongo
 $2 yarn install
 $2 yarn dev
