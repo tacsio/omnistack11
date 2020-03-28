@@ -1,5 +1,6 @@
 const express = require('express');
 const { celebrate, Joi, Segments } = require('celebrate');
+const { createOngValidator, indexIncidentValidator, deleteIncidentValidator, profileIndexValidator } = require('./validators')
 
 const OngController = require('./controllers/OngController');
 const IncidentsController = require('./controllers/IncidentController');
@@ -8,23 +9,19 @@ const SessionController = require('./controllers/SessionController');
 
 const routes = express.Router();
 
+//ong
 routes.get('/ongs', OngController.index);
-routes.post('/ongs', celebrate({
-	[Segments.BODY]: Joi.object().keys({
-		name: Joi.string().required(),
-		email: Joi.string().required().email(),
-		whatsapp: Joi.number().required().min(10).max(15),
-		city: Joi.string().required(),
-		uf: Joi.string().length(2)
-	})
-}), OngController.create);
+routes.post('/ongs', createOngValidator(), OngController.create);
 
-routes.get('/incidents', IncidentsController.index);
+//incident
+routes.get('/incidents', indexIncidentValidator() , IncidentsController.index);
 routes.post('/incidents', IncidentsController.create);
-routes.delete('/incidents/:id', IncidentsController.delete);
+routes.delete('/incidents/:id', deleteIncidentValidator() , IncidentsController.delete);
 
-routes.get('/profile', ProfileController.index);
+//profile
+routes.get('/profile', profileIndexValidator(), ProfileController.index);
 
+//session
 routes.post('/sessions', SessionController.create);
 
 module.exports = routes;
