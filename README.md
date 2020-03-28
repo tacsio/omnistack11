@@ -1,5 +1,7 @@
 #  OmniStack 11 by [@Rocketseat][rocketseat] ![rocketlogo][rocketlogo]
 
+![applogo][applogo]
+
 > Backend
 
 ```
@@ -29,3 +31,4 @@ yarn start
 
 [rocketseat]: https://github.com/rocketseat
 [rocketlogo]: https://avatars0.githubusercontent.com/u/28929274?s=50&v=4
+[applogo]: https://github.com/tacsio/omnistack11/blob/master/mobile/src/assets/logo%403x.png
