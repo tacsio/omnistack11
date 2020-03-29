@@ -8,7 +8,7 @@
 - [SQLite][sqlite] - SQLite is a C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine. 
 - [Axios][axios] - Promise based HTTP client for the browser and node.js.
 
-### Run Scripts
+#### Run Scripts
 ```bash
 npx knex migrate:latest
 yarn install
@@ -20,7 +20,7 @@ yarn dev
 - [React][reactjs] - A JavaScript library for building user interfaces.
 - [Axios][axios] - Promise based HTTP client for the browser and node.js.
 
-### Run Scripts
+#### Run Scripts
 ```bash
 yarn install
 yarn start
@@ -32,7 +32,7 @@ yarn start
 - [Expo][expo] - Expo is an open-source platform for making universal native apps for Android, iOS, and the web with JavaScript and React.
 - [Axios][axios] - Promise based HTTP client for the browser and node.js.
 
-### Run Scripts
+#### Run Scripts
 ```bash
 yarn install
 yarn start
